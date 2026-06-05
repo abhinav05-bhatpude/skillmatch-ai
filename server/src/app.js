@@ -13,4 +13,4 @@ app.get("/",(req,res)=>{
     });
 });
 
-module.export=app;
+module.exports=app;
