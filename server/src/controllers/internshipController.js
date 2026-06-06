@@ -12,6 +12,19 @@ const createInternship = async (req, res) => {
   }
 };
 
+const getInternships = async (req,res)=>{
+    try{
+        const internships=await Internship.find();
+
+        res.status(200).json(internships);
+    } catch(error){
+        res.status(500).json({
+            message:error.message,
+        });
+    }
+};
+
 module.exports = {
   createInternship,
+  getInternships,
 };
