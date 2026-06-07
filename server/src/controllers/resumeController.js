@@ -37,7 +37,33 @@ const getResumes = async (req,res) => {
     }
 };
 
+const deleteResume = async (
+  req,
+  res
+) => {
+  try {
+
+    await Resume.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Resume Deleted",
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+};
+
+
 module.exports = {
   uploadResume,
   getResumes,
+  deleteResume,
 };
