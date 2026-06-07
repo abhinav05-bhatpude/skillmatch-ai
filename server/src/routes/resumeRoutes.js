@@ -14,5 +14,6 @@ router.post(
   upload.single("resume"),
   uploadResume
 );
+router.get("/",getResumes);
 
 module.exports = router;
