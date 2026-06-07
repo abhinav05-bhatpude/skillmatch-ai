@@ -7,6 +7,8 @@ const upload =
 
 const {
   uploadResume,
+  getResumes,
+  deleteResume
 } = require("../controllers/resumeController");
 
 router.post(
@@ -15,5 +17,6 @@ router.post(
   uploadResume
 );
 router.get("/",getResumes);
+router.delete("/:id",deleteResume);
 
 module.exports = router;
