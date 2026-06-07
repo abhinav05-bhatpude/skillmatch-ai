@@ -25,6 +25,19 @@ const uploadResume = async (
   }
 };
 
+const getResumes = async (req,res) => {
+    try{
+        const resumes = await Resume.find();
+
+        res.status(200).json(resumes);
+    } catch(error){
+        res.status(500).json({
+            message:error.message,
+        });
+    }
+};
+
 module.exports = {
   uploadResume,
+  getResumes,
 };
