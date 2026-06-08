@@ -9,7 +9,7 @@ const resumeSchema = new mongoose.Schema(
 
     extractedText: {
       type: String,
-      default: "",
+      default:"",
     },
   },
   {
