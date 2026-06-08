@@ -9,7 +9,8 @@ const {
   uploadResume,
   getResumes,
   deleteResume,
-  getResumeById
+  getResumeById,
+  previewResume,
 } = require("../controllers/resumeController");
 
 router.post(
@@ -20,5 +21,6 @@ router.post(
 router.get("/",getResumes);
 router.delete("/:id",deleteResume);
 router.get("/:id",getResumeById);
+router.get("/preview/:id",previewResume);
 
 module.exports = router;
