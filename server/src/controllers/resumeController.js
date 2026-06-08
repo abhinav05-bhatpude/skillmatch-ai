@@ -44,6 +44,23 @@ const getResumeById = async (req,res)=> {
   }
 };
 
+const previewResume = 
+async(req,res) => {
+  try{
+
+    const resume=await Resume.findById(req.params.id);
+
+    res.json({
+      text:resume.extractedText
+    });
+  } catch(error){
+
+    res.status(500).json({
+      message:error.message
+    });
+  }
+} 
+
 const deleteResume = async (req, res) => {
   try {
     await Resume.findByIdAndDelete(req.params.id);
@@ -64,4 +81,5 @@ module.exports = {
   getResumes,
   getResumeById,
   deleteResume,
+  previewResume,
 };
