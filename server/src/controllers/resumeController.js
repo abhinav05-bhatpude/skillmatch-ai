@@ -80,10 +80,37 @@ const deleteResume = async (req, res) => {
   }
 };
 
+const getSkills =
+async(req,res)=>{
+
+try{
+
+const resume =
+await Resume.findById(
+req.params.id
+);
+
+res.json({
+skills:
+resume.skills
+});
+
+}catch(error){
+
+res.status(500).json({
+message:
+error.message
+});
+
+}
+
+};
+
 module.exports = {
   uploadResume,
   getResumes,
   getResumeById,
   deleteResume,
   previewResume,
+  getSkills,
 };
