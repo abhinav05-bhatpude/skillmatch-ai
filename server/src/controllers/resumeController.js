@@ -1,12 +1,19 @@
 const Resume = require("../models/Resume");
-const extractedPdfText = require("../services/pdfService");
+const extractPdfText = require("../services/pdfService");
+const extractSkills = require("../services/skillExtractor");
 
 const uploadResume = async (req, res) => {
   try {
+    const text = await extractPdfText(req.file.path);
+
+    const detectedSkills = extractSkills(text);
+
     const resume = await Resume.create({
       fileName: req.file.filename,
 
-      extractedText: await extractPdfText(req.file.path),
+      extractedText: text,
+
+      skills: detectedSkills,
     });
 
     res.status(201).json({
@@ -32,34 +39,31 @@ const getResumes = async (req, res) => {
   }
 };
 
-const getResumeById = async (req,res)=> {
-  try{
-    const resume=await Resume.findById(req.params.id);
+const getResumeById = async (req, res) => {
+  try {
+    const resume = await Resume.findById(req.params.id);
 
     res.json(resume);
-  } catch(error){
+  } catch (error) {
     res.status(500).json({
-      message:error.message
+      message: error.message,
     });
   }
 };
 
-const previewResume = 
-async(req,res) => {
-  try{
-
-    const resume=await Resume.findById(req.params.id);
+const previewResume = async (req, res) => {
+  try {
+    const resume = await Resume.findById(req.params.id);
 
     res.json({
-      text:resume.extractedText
+      text: resume.extractedText,
     });
-  } catch(error){
-
+  } catch (error) {
     res.status(500).json({
-      message:error.message
+      message: error.message,
     });
   }
-} 
+};
 
 const deleteResume = async (req, res) => {
   try {
