@@ -1,12 +1,11 @@
-function Home(){
-    return(
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-5xl font-bold">
-             SkillMatch AI
-            </h1>
+import Hero from "../components/Hero";
 
-        </div>
-    );
+function Home() {
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }
 
 export default Home;
