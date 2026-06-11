@@ -1,5 +1,6 @@
 import ResumeUpload from "../components/ResumeUpload";
 import SkillsList from "../components/SkillsList";
+import RecommendationList from "../components/RecommendationList";
 
 function ResumePage() {
 
@@ -24,13 +25,16 @@ function ResumePage() {
         <p className="text-gray-600 mb-10">
 
           Upload your resume and
-          discover your skills.
+          get personalized
+          internship recommendations.
 
         </p>
 
         <ResumeUpload />
 
         <SkillsList skills={skills} />
+
+        <RecommendationList />
 
       </div>
 
