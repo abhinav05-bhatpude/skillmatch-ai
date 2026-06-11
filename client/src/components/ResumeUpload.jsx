@@ -35,32 +35,56 @@ function ResumeUpload() {
   };
 
   return (
-    <div className="border p-8 rounded-lg">
-
+    <div
+      className="
+      border
+      p-8
+      rounded-xl
+      shadow-md
+      bg-white
+      max-w-xl
+      mx-auto
+      "
+    >
       <input
         type="file"
         accept=".pdf"
         onChange={handleFileChange}
+        className="
+        w-full
+        border
+        rounded-lg
+        p-3
+        cursor-pointer
+        "
       />
 
-      <p className="mt-4">
+      <p className="mt-4 text-gray-600">
         {file ? file.name : "No file selected"}
       </p>
 
       <button
         onClick={handleUpload}
+        disabled={loading}
         className="
-          bg-blue-600
-          text-white
-          px-4
-          py-2
-          rounded
-          mt-4
+        bg-blue-600
+        hover:bg-blue-700
+        hover:scale-105
+        transition-all
+        duration-300
+        text-white
+        px-6
+        py-3
+        rounded-lg
+        mt-4
+        shadow-md
+        hover:shadow-xl
+        disabled:bg-gray-400
+        disabled:cursor-not-allowed
         "
       >
-        Upload Resume
+        {loading ? "Uploading..." : "Upload Resume"}
       </button>
-
     </div>
   );
 }
