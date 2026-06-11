@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { uploadResume } from "../services/resumeApi";
 
 function ResumeUpload() {
 
 const [file,setFile] =
 useState(null);
+const [loading,setLoading] = useState(false);
 
 const handleFileChange =
 (e)=>{
@@ -12,6 +14,24 @@ setFile(
 e.target.files[0]
 );
 
+};
+const handleUpload = async()=> {
+    if(!file) return;
+
+    try{
+        setLoading(true);
+
+        const formData=new FormData();
+        formData.append("resume",file);
+
+        await uploadResume(formData);
+
+        alert("Resume Uploaded");
+    } catch(error){
+        console.log(error);
+    } finally{
+        setLoading(false);
+    }
 };
 
 return (
