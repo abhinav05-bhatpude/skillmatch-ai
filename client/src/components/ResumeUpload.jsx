@@ -1,19 +1,43 @@
-function ResumeUpload(){
-    return (
-        <div className="border p-8 rounded-lg">
-            <input
-            type="file"
-            className="mb-4"
-            />
+import { useState } from "react";
 
-            <button
-            className="bg-blue-600 text-white px-4 py-2 rounded"
-            >
-Upload Resume
-            </button>
+function ResumeUpload() {
 
-        </div>
-    );
+const [file,setFile] =
+useState(null);
+
+const handleFileChange =
+(e)=>{
+
+setFile(
+e.target.files[0]
+);
+
+};
+
+return (
+
+<div className="border p-8 rounded-lg">
+
+<input
+type="file"
+accept=".pdf"
+onChange={
+handleFileChange
+}
+/>
+
+<p className="mt-4">
+
+{file
+? file.name
+: "No file selected"}
+
+</p>
+
+</div>
+
+);
+
 }
 
 export default ResumeUpload;
