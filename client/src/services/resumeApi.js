@@ -12,3 +12,7 @@ formData
 );
 
 };
+
+export const getSkills = (id) => {
+    return axios.get(`${API}/skills/${id}`);
+};
