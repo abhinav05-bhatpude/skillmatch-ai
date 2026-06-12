@@ -1,6 +1,7 @@
 const Resume = require("../models/Resume");
 const extractPdfText = require("../services/pdfService");
 const extractSkills = require("../services/skillExtractor");
+const analyzeSkills = require("../services/analysisService");
 
 const uploadResume = async (req, res) => {
   try {
@@ -105,6 +106,19 @@ error.message
 }
 
 };
+const getAnalysis = async(req,res) => {
+  try{
+    const resume=await Resume.findById(req.params.id);
+
+    const analysis = analyzeSkills(resume.skills);
+
+    res.json(analysis);
+  } catch(error){
+    res.status(500).json({
+      message:error.message
+    });
+  }
+};
 
 module.exports = {
   uploadResume,
@@ -113,4 +127,5 @@ module.exports = {
   deleteResume,
   previewResume,
   getSkills,
+  getAnalysis,
 };
