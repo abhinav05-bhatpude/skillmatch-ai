@@ -12,6 +12,7 @@ const {
   getResumeById,
   previewResume,
   getSkills,
+  getAnalysis,
 } = require("../controllers/resumeController");
 
 router.post(
@@ -24,5 +25,6 @@ router.delete("/:id",deleteResume);
 router.get("/:id",getResumeById);
 router.get("/preview/:id",previewResume);
 router.get("/skills/:id",getSkills);
+router.get("/analysis/:id",getAnalysis);
 
 module.exports = router;
