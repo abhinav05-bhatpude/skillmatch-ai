@@ -1,52 +1,56 @@
 import ResumeUpload from "../components/ResumeUpload";
 import SkillsList from "../components/SkillsList";
 import RecommendationList from "../components/RecommendationList";
-import { useState } from "react";
+
 import {
-getSkills
-}
-from "../services/resumeApi";
+  useState,
+  useEffect,
+} from "react";
+
+import {
+  getSkills,
+} from "../services/resumeApi";
 
 function ResumePage() {
 
- const [skills,setSkills] =
-useState([]);
+  const [skills, setSkills] =
+    useState([]);
 
-const [resumeId,
-setResumeId] =
-useState(null);
+  const [resumeId, setResumeId] =
+    useState(null);
 
-useEffect(()=>{
+  useEffect(() => {
 
-const fetchSkills =
-async()=>{
+    const fetchSkills =
+      async () => {
 
-if(!resumeId)
-return;
+        if (!resumeId)
+          return;
 
-try{
+        try {
 
-const response =
-await getSkills(
-resumeId
-);
+          const response =
+            await getSkills(
+              resumeId
+            );
 
-setSkills(
-response.data.skills
-);
+          setSkills(
+            response.data.skills
+          );
 
-}
-catch(error){
+        } catch (error) {
 
-console.log(error);
+          console.log(
+            error
+          );
 
-}
+        }
 
-};
+      };
 
-fetchSkills();
+    fetchSkills();
 
-},[resumeId]);
+  }, [resumeId]);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -67,9 +71,15 @@ fetchSkills();
 
         </p>
 
-        <ResumeUpload />
+        <ResumeUpload
+          onUploadSuccess={
+            setResumeId
+          }
+        />
 
-        <SkillsList skills={skills} />
+        <SkillsList
+          skills={skills}
+        />
 
         <RecommendationList />
 
