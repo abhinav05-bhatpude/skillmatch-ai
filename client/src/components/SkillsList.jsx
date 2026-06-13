@@ -7,9 +7,28 @@ function SkillsList({ skills }) {
       </h2>
 
       {skills.length === 0 ? (
-        <p className="text-gray-500">
-          No skills detected yet.
-        </p>
+       <div
+className="
+bg-yellow-50
+border
+border-yellow-200
+rounded-lg
+p-4
+"
+>
+
+<p
+className="
+text-yellow-700
+"
+>
+
+Upload a resume to
+see detected skills.
+
+</p>
+
+</div>
       ) : (
         <div className="flex flex-wrap gap-3">
 
