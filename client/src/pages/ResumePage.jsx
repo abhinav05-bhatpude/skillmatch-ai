@@ -2,6 +2,10 @@ import ResumeUpload from "../components/ResumeUpload";
 import SkillsList from "../components/SkillsList";
 import RecommendationList from "../components/RecommendationList";
 import { useState } from "react";
+import {
+getSkills
+}
+from "../services/resumeApi";
 
 function ResumePage() {
 
@@ -11,6 +15,38 @@ useState([]);
 const [resumeId,
 setResumeId] =
 useState(null);
+
+useEffect(()=>{
+
+const fetchSkills =
+async()=>{
+
+if(!resumeId)
+return;
+
+try{
+
+const response =
+await getSkills(
+resumeId
+);
+
+setSkills(
+response.data.skills
+);
+
+}
+catch(error){
+
+console.log(error);
+
+}
+
+};
+
+fetchSkills();
+
+},[resumeId]);
 
   return (
     <div className="min-h-screen bg-slate-50">
