@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API =
-"http://localhost:5000/api/resumes";
+`${import.meta.env.VITE_API_URL}/resumes`;
 
 export const uploadResume =
 (formData) => {
@@ -13,6 +13,11 @@ formData
 
 };
 
-export const getSkills = (id) => {
-    return axios.get(`${API}/skills/${id}`);
+export const getSkills =
+(id) => {
+
+return axios.get(
+`${API}/skills/${id}`
+);
+
 };
