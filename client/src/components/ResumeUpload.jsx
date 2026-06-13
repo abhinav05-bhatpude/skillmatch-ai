@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { uploadResume } from "../services/resumeApi";
 
-function ResumeUpload() {
+function ResumeUpload({ onUploadSuccess }) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -22,15 +22,38 @@ function ResumeUpload() {
 
       formData.append("resume", file);
 
-      await uploadResume(formData);
+      const response =
+        await uploadResume(formData);
 
-      alert("Resume Uploaded Successfully!");
+      console.log(
+        "Resume Uploaded:",
+        response.data
+      );
+
+      if (
+        response.data &&
+        response.data.resume &&
+        response.data.resume._id
+      ) {
+        onUploadSuccess(
+          response.data.resume._id
+        );
+      }
+
+      alert(
+        "Resume Uploaded Successfully!"
+      );
+
     } catch (error) {
+
       console.log(error);
 
       alert("Upload Failed");
+
     } finally {
+
       setLoading(false);
+
     }
   };
 
@@ -60,7 +83,9 @@ function ResumeUpload() {
       />
 
       <p className="mt-4 text-gray-600">
-        {file ? file.name : "No file selected"}
+        {file
+          ? file.name
+          : "No file selected"}
       </p>
 
       <button
@@ -83,7 +108,9 @@ function ResumeUpload() {
         disabled:cursor-not-allowed
         "
       >
-        {loading ? "Uploading..." : "Upload Resume"}
+        {loading
+          ? "Uploading..."
+          : "Upload Resume"}
       </button>
     </div>
   );
