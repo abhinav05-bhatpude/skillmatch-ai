@@ -1,15 +1,16 @@
 import ResumeUpload from "../components/ResumeUpload";
 import SkillsList from "../components/SkillsList";
 import RecommendationList from "../components/RecommendationList";
+import { useState } from "react";
 
 function ResumePage() {
 
-  const skills = [
-    "React",
-    "Node.js",
-    "MongoDB",
-    "Git"
-  ];
+ const [skills,setSkills] =
+useState([]);
+
+const [resumeId,
+setResumeId] =
+useState(null);
 
   return (
     <div className="min-h-screen bg-slate-50">
