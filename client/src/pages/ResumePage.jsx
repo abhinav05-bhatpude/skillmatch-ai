@@ -12,7 +12,6 @@ import {
 } from "../services/resumeApi";
 
 function ResumePage() {
-
   const [skills, setSkills] =
     useState([]);
 
@@ -20,15 +19,11 @@ function ResumePage() {
     useState(null);
 
   useEffect(() => {
-
     const fetchSkills =
       async () => {
-
-        if (!resumeId)
-          return;
+        if (!resumeId) return;
 
         try {
-
           const response =
             await getSkills(
               resumeId
@@ -37,39 +32,18 @@ function ResumePage() {
           setSkills(
             response.data.skills
           );
-
         } catch (error) {
-
-          console.log(
-            error
-          );
-
+          console.log(error);
         }
-
       };
 
     fetchSkills();
-
   }, [resumeId]);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100">
 
-      <div className="max-w-5xl mx-auto p-8">
-
-        <h1 className="text-5xl font-bold mb-4">
-
-          Resume Analysis
-
-        </h1>
-
-        <p className="text-gray-600 mb-10">
-
-          Upload your resume and
-          get personalized
-          internship recommendations.
-
-        </p>
+      <div className="max-w-6xl mx-auto px-6 py-10">
 
         <ResumeUpload
           onUploadSuccess={
