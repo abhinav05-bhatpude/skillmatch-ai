@@ -26,7 +26,7 @@ function ResumeUpload({ onUploadSuccess }) {
         await uploadResume(formData);
 
       console.log(
-        "Resume Uploaded:",
+        "UPLOAD RESPONSE:",
         response.data
       );
 
@@ -38,17 +38,27 @@ function ResumeUpload({ onUploadSuccess }) {
         onUploadSuccess(
           response.data.resume._id
         );
-      }
 
-      alert(
-        "Resume Uploaded Successfully!"
-      );
+        alert(
+          "Resume Uploaded Successfully!"
+        );
+      } else {
+        alert(
+          "Resume uploaded but Resume ID not found."
+        );
+      }
 
     } catch (error) {
 
-      console.log(error);
+      console.error(
+        "UPLOAD ERROR:",
+        error
+      );
 
-      alert("Upload Failed");
+      alert(
+        error?.response?.data?.message ||
+        "Upload Failed"
+      );
 
     } finally {
 
@@ -60,29 +70,66 @@ function ResumeUpload({ onUploadSuccess }) {
   return (
     <div
       className="
+      mt-12
       border
-      p-8
-      rounded-xl
-      shadow-md
-      bg-white
-      max-w-xl
+      border-white/10
+      bg-white/5
+      backdrop-blur-xl
+      p-10
+      rounded-3xl
+      shadow-2xl
+      max-w-2xl
       mx-auto
       "
     >
+
+      <h2
+        className="
+        text-3xl
+        font-bold
+        text-center
+        mb-4
+        text-white
+        "
+      >
+        Upload Resume
+      </h2>
+
+      <p
+        className="
+        text-center
+        text-slate-300
+        mb-8
+        "
+      >
+        Upload your PDF resume and let
+        SkillMatch AI analyze your skills.
+      </p>
+
       <input
         type="file"
         accept=".pdf"
         onChange={handleFileChange}
         className="
         w-full
-        border
-        rounded-lg
-        p-3
+        border-2
+        border-dashed
+        border-cyan-400
+        rounded-2xl
+        p-6
         cursor-pointer
+        bg-black/20
+        text-white
         "
       />
 
-      <p className="mt-4 text-gray-600">
+      <p
+        className="
+        mt-4
+        text-center
+        text-slate-300
+        "
+      >
         {file
           ? file.name
           : "No file selected"}
@@ -92,19 +139,20 @@ function ResumeUpload({ onUploadSuccess }) {
         onClick={handleUpload}
         disabled={loading}
         className="
-        bg-blue-600
-        hover:bg-blue-700
+        w-full
+        mt-6
+        bg-gradient-to-r
+        from-purple-500
+        to-cyan-500
         hover:scale-105
         transition-all
         duration-300
         text-white
-        px-6
-        py-3
-        rounded-lg
-        mt-4
-        shadow-md
-        hover:shadow-xl
-        disabled:bg-gray-400
+        font-bold
+        py-4
+        rounded-2xl
+        shadow-xl
+        disabled:bg-gray-500
         disabled:cursor-not-allowed
         "
       >
@@ -112,6 +160,7 @@ function ResumeUpload({ onUploadSuccess }) {
           ? "Uploading..."
           : "Upload Resume"}
       </button>
+
     </div>
   );
 }
