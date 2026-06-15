@@ -28,15 +28,21 @@ async (resumeText) => {
     });
 
   const content =
-    completion
-    .choices[0]
-    .message
-    .content;
+completion
+.choices[0]
+.message
+.content;
+
+const cleanedContent =
+content
+.replace(/```json/g,"")
+.replace(/```/g,"")
+.trim();
 
   try {
 
     return JSON.parse(
-      content
+      cleanedContent
     );
 
   } catch (error) {
