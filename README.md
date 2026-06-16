@@ -1,3 +1,7 @@
 # SkillMatch AI
 
-AI-powered internship discovery platform.
+AI-powered internship discovery platform with resume analysis, skill-gap detection, internship matching, and application tracking.
+
+## Overview
+
+SkillMatch AI helps students discover internships based on their skills and resume content.
