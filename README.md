@@ -37,3 +37,12 @@ SkillMatch AI helps students discover internships based on their skills and resu
 4. Skill gaps are identified
 5. Internship recommendations are generated
 6. Applications are tracked
+
+## Groq API Integration
+
+The Groq API is used for:
+
+- Resume analysis
+- Skill extraction
+- Personalized recommendations
+- Career insights
