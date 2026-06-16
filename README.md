@@ -12,3 +12,19 @@ SkillMatch AI helps students discover internships based on their skills and resu
 - Skill Gap Detection
 - Internship Matching
 - Application Tracking
+
+- ## Tech Stack
+
+### Frontend
+- React
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB
+
+### AI
+- Groq API
