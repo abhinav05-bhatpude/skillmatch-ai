@@ -46,3 +46,13 @@ The Groq API is used for:
 - Skill extraction
 - Personalized recommendations
 - Career insights
+
+- ## Installation
+
+git clone https://github.com/abhinav05-bhatpude/skillmatch-ai/
+
+cd skillmatch-ai
+
+npm install
+
+npm run dev
