@@ -6,6 +6,6 @@ coverage
 
 client/node_modules
 server/node_modules
-
+.env
 client/dist
 server/dist

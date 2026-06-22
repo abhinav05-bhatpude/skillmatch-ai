@@ -41,4 +41,5 @@ const deleteInternship = async (req,res) => {
 module.exports = {
   createInternship,
   getInternships,
+  deleteInternship,
 };

@@ -1,14 +1,22 @@
-const skillsDatabase = require("../data/skills");
+const skillsDatabase =
+require("../data/skills");
 
-const analyzeSkills = (resumeSkills) => {
-  const missingSkills = skillsDatabase.filter(
-    (skill) => !resumeSkills.includes(skill),
-  );
+const analyzeSkills = (
+resumeSkills
+) => {
 
-  return {
-    resumeSkills,
-    missingSkills,
-  };
+const missingSkills =
+skillsDatabase.filter(
+(skill)=>
+!resumeSkills.includes(skill)
+);
+
+return {
+resumeSkills,
+missingSkills
 };
 
-module.export = analyzeSkills;
+};
+
+module.exports =
+analyzeSkills;

@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const upload =
-  require("../middleware/uploadMiddleware");
+require("../middleware/uploadMiddleware");
 
 const {
   uploadResume,
@@ -20,11 +20,32 @@ router.post(
   upload.single("resume"),
   uploadResume
 );
-router.get("/",getResumes);
-router.delete("/:id",deleteResume);
-router.get("/:id",getResumeById);
-router.get("/preview/:id",previewResume);
-router.get("/skills/:id",getSkills);
-router.get("/analysis/:id",getAnalysis);
+
+router.get("/", getResumes);
+
+router.get(
+  "/preview/:id",
+  previewResume
+);
+
+router.get(
+  "/skills/:id",
+  getSkills
+);
+
+router.get(
+  "/analysis/:id",
+  getAnalysis
+);
+
+router.get(
+  "/:id",
+  getResumeById
+);
+
+router.delete(
+  "/:id",
+  deleteResume
+);
 
 module.exports = router;
