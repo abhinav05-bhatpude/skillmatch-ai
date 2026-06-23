@@ -53,4 +53,13 @@ The application follows a client-server architecture where the frontend communic
 * User Dashboard
 * Career Roadmap
 
+* ## Live Project
+
+Frontend:
+https://skillmatch-ai-navy.vercel.app/
+
+Backend:
+https://skillmatch-ai-1-grb4.onrender.com
+
+
 
