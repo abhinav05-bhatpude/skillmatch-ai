@@ -15,3 +15,16 @@ SkillMatch AI aims to solve this problem by:
 * Identifying missing skills
 * Providing actionable career insights
 * Reducing the time spent searching manually
+
+* ## Architecture
+
+Frontend (React + Tailwind CSS)
+↓
+REST API (Express.js)
+↓
+MongoDB Atlas
+↓
+Groq AI Services
+
+The application follows a client-server architecture where the frontend communicates with backend APIs to process resumes, generate recommendations, and manage internship-related data.
+
