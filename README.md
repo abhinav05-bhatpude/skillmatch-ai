@@ -80,6 +80,20 @@ skillmatch-ai/
 │
 └── README.md
 
+## Challenges Faced
+
+During development, several real-world engineering challenges were encountered:
+
+* PDF Parsing Errors
+* Git Merge Conflicts
+* MongoDB Connectivity Issues
+* Environment Variable Configuration
+* CORS Errors
+* Render Deployment Problems
+
+These challenges provided valuable experience in debugging, deployment, and full-stack application development.
+
+
 
 
 
