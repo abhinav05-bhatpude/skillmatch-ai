@@ -28,3 +28,29 @@ Groq AI Services
 
 The application follows a client-server architecture where the frontend communicates with backend APIs to process resumes, generate recommendations, and manage internship-related data.
 
+## Current Status
+
+### Completed
+
+* Resume Upload System
+* PDF Resume Parsing
+* Skill Extraction
+* AI Resume Analysis
+* MongoDB Integration
+* Frontend Deployment
+* Backend Deployment
+
+### In Progress
+
+* Internship Recommendation Engine
+* Resume vs Job Description Analysis
+* Application Tracking
+
+### Planned
+
+* Authentication (JWT)
+* Saved Internships
+* User Dashboard
+* Career Roadmap
+
+
