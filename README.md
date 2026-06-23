@@ -61,5 +61,25 @@ https://skillmatch-ai-navy.vercel.app/
 Backend:
 https://skillmatch-ai-1-grb4.onrender.com
 
+## Folder Structure
+
+skillmatch-ai/
+├── client/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── services/
+│
+├── server/
+│   ├── src/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   └── middleware/
+│
+└── README.md
+
+
 
 
